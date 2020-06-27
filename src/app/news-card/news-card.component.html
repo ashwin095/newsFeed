@@ -1,0 +1,43 @@
+<div class="card">
+    <div class="card-title col s12">
+        <img class="user-image" [src]="newsImage">
+        <div class="card-title-desc">
+            <span class="user-name">{{author}}</span>
+            <span class="source-name">{{sourceName}}</span>
+        </div>
+        <i class="material-icons title-icon">more_horiz</i>
+    </div>
+    <img *ngIf="newsImage" [src]="newsImage">
+    <img *ngIf="!newsImage" src="assets/no-image.jpg">
+    <div class="interaction-panel col s12">
+        <img class="image-icon" src="assets/like.png">
+        <img class="image-icon" src="assets/comment.png">
+        <img class="image-icon" src="assets/message.png">
+        <img class="image-icon right" *ngIf="!bookmarked" (click)="addBookMark()" src="assets/bookmark.png">
+        <img class="image-icon right" *ngIf="bookmarked" (click)="addBookMark()" src="assets/bookmarkAdded.png">
+    </div>
+    <div class="card-description col s12">
+        <span class="author-name">{{author}}</span>
+        <p *ngIf="!showDescription" class="overflow-control">{{description}} </p>
+        <p *ngIf="showDescription">{{description}} </p>
+        <a *ngIf="!showDescription" class="card-read-more" (click)=showfullDescription()>more</a>
+    </div>
+    <div class="card-comments col s12">
+        <a *ngIf="comments.length > 2" class="more-comments">view all {{comments.length}} comments</a>
+    </div>
+    <div *ngFor="let comment of requiredComments">
+        <p class="comment-user-name">{{comment.username}}</p>
+        <p class="comment-text">{{comment.comments}}</p>
+    </div>
+    <span class="date-ago">{{publishedAt | dateAgo }}</span>
+    <div class="add-comments">
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field">
+                    <input id="add_comment" type="text" class="validate">
+                    <label for="add_comment">Add a comment...</label>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

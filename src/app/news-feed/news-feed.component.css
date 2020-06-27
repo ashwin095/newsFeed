@@ -1,0 +1,12 @@
+.main-container{
+    position: absolute;
+    top: 55px;
+    bottom: 40px;
+    width: 100%;
+}
+
+/* .app-footer {
+   position:fixed;
+   bottom: 20px;
+     width:100%;
+ } */

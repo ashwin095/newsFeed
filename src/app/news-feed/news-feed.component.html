@@ -1,0 +1,5 @@
+<div  infinite-scroll (scrolled)="onScrollDown()">
+    <div *ngFor="let article of articles">
+        <app-news-card  [bookmarks]="bookmarks" [article]=article></app-news-card>
+    </div>
+</div>
